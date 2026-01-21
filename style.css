@@ -1,35 +1,98 @@
+/* ---------- GLOBAL ---------- */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: #0b0f1a;
   color: #eaeaf0;
+  line-height: 1.6;
 }
 
-header {
+a {
+  color: #5cc8ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: url("assets/cover.png") center / cover no-repeat;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 15, 26, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 40px;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin: 0;
+}
+
+.hero h1 span {
+  color: #5cc8ff;
+}
+
+.tagline {
+  font-size: 1.3em;
+  opacity: 0.9;
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
   padding: 80px 20px;
-  background: radial-gradient(circle at top, #1f3cff, #0b0f1a);
-}
-
-h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-
-section {
-  padding: 60px 20px;
   max-width: 900px;
   margin: auto;
-}
-
-ul {
-  line-height: 2;
-}
-
-footer {
   text-align: center;
+}
+
+.section.dark {
+  background: #10162a;
+}
+
+.section h2 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+}
+
+/* ---------- FEATURES ---------- */
+.features {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.features li {
+  margin: 12px 0;
+  font-size: 1.1em;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
   padding: 30px;
+  text-align: center;
+  font-size: 0.9em;
   opacity: 0.7;
 }
-
