@@ -1,211 +1,79 @@
-/* ================= COLOR SYSTEM (REPLACE YOUR :root WITH THIS) ================= */
-:root{
-  /* Light background like the reference */
-  --bg:#F2F6FF;      /* main page background */
-  --bg2:#EEF4FF;     /* section “alt” background (used by .section.dark) */
+<script>
+  // Mobile menu
+  const btn = document.querySelector(".menu-btn");
+  const links = document.querySelector("#navLinks");
 
-  /* Text (dark, readable) */
-  --txt:#0B0F1A;
-  --muted:rgba(11,15,26,.70);
-
-  /* Accents (keep your brand vibe, but visible on light bg) */
-  --accent:#2563EB;   /* link blue */
-  --accent2:#3B82F6;
-  --accent3:#7C3AED;
-
-  /* Cards / borders / shadows tuned for light UI */
-  --card:rgba(255,255,255,.75);
-  --card2:rgba(255,255,255,.88);
-  --border:rgba(15,23,42,.12);
-  --shadow: 0 18px 45px rgba(15,23,42,.10);
-
-  --radius:22px;
-}
-
-/* ================= BODY BACKGROUND (REPLACE YOUR body{} WITH THIS) ================= */
-body{
-  margin:0;
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  background:
-    radial-gradient(1100px 520px at 15% 0%, rgba(37,99,235,.10), transparent 60%),
-    radial-gradient(900px 480px at 85% 10%, rgba(124,58,237,.10), transparent 58%),
-    var(--bg);
-  color:var(--txt);
-  line-height:1.65;
-  overflow-x:hidden;
-}
-
-a{color:var(--accent); text-decoration:none}
-a:hover{text-decoration:underline}
-
-/* ================= SCROLLBAR (LIGHT) ================= */
-.scrollbar{ background: rgba(15,23,42,.08); }
-.scrollbar-fill{
-  background: linear-gradient(90deg, rgba(37,99,235,.95), rgba(59,130,246,.9), rgba(124,58,237,.85));
-}
-
-/* ================= HERO BACKGROUND (LIGHT) ================= */
-.hero{
-  background-color: var(--bg);
-}
-
-/* Light glow layer (REPLACE your .hero::before with this) */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:
-    radial-gradient(700px 420px at 25% 35%, rgba(37,99,235,.12), transparent 62%),
-    radial-gradient(680px 420px at 70% 20%, rgba(124,58,237,.10), transparent 60%);
-  filter:saturate(1.05);
-  pointer-events:none;
-  animation: floatGlow 10s ease-in-out infinite alternate;
-}
-
-/* Remove the dark “curtain” overlay (REPLACE your .hero::after with this) */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      to right,
-      rgba(242,246,255,0.00) 0%,
-      rgba(242,246,255,0.35) 38%,
-      rgba(242,246,255,0.70) 70%,
-      rgba(242,246,255,0.92) 100%
-    );
-  pointer-events:none;
-}
-
-/* ================= NAV (DARK TEXT ON LIGHT BG) ================= */
-.brand{ color:var(--txt); }
-.nav-links a{ color:var(--txt); opacity:.92; }
-.nav-links a:hover{
-  border-color: rgba(15,23,42,.12);
-  background: rgba(255,255,255,.55);
-}
-
-/* CTA should still pop */
-.nav-links .cta{
-  border-color: rgba(37,99,235,.22);
-  background: linear-gradient(90deg, rgba(37,99,235,.10), rgba(59,130,246,.10));
-}
-
-/* Mobile menu button lines */
-.menu-btn{
-  border:1px solid rgba(15,23,42,.14);
-  background: rgba(255,255,255,.55);
-}
-.menu-btn span{ background: rgba(11,15,26,.70); }
-
-/* ================= HERO CONTENT COLORS ================= */
-.pill{
-  border:1px solid rgba(15,23,42,.12);
-  background: rgba(255,255,255,.60);
-  color: rgba(11,15,26,.78);
-}
-
-.gradient-text{
-  background: linear-gradient(90deg, rgba(37,99,235,1), rgba(124,58,237,1));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.subhead{ color: var(--muted); }
-
-/* Buttons (make sure primary text is readable) */
-.btn{
-  border:1px solid rgba(15,23,42,.12);
-}
-.btn.primary{
-  background: linear-gradient(90deg, rgba(37,99,235,.92), rgba(59,130,246,.82));
-  color: white;
-  box-shadow: 0 18px 40px rgba(37,99,235,.14);
-}
-.btn.ghost{
-  background: rgba(255,255,255,.65);
-  color: var(--txt);
-}
-
-/* Badges */
-.badges span{
-  border:1px solid rgba(15,23,42,.12);
-  background: rgba(255,255,255,.60);
-  color: rgba(11,15,26,.85);
-}
-
-/* Mini cards */
-.mini-card{
-  border:1px solid rgba(15,23,42,.12);
-  background: rgba(255,255,255,.62);
-  box-shadow: var(--shadow);
-}
-.mini-sub{ color: var(--muted); }
-
-/* ================= STRIP (LIGHT) ================= */
-.strip{
-  background: rgba(255,255,255,.55);
-  border-top:1px solid rgba(15,23,42,.08);
-  border-bottom:1px solid rgba(15,23,42,.08);
-}
-.strip-item{
-  border:1px solid rgba(15,23,42,.10);
-  background: rgba(255,255,255,.65);
-}
-.kpi-sub{ color: var(--muted); }
-
-/* ================= SECTIONS (MAKE “dark” LIGHT TOO) ================= */
-.section.dark{
-  background:
-    radial-gradient(900px 520px at 10% 0%, rgba(37,99,235,.08), transparent 60%),
-    radial-gradient(860px 520px at 90% 10%, rgba(124,58,237,.07), transparent 62%),
-    var(--bg2);
-  border-top:1px solid rgba(15,23,42,.08);
-  border-bottom:1px solid rgba(15,23,42,.08);
-}
-
-/* ================= CARDS ================= */
-.card{
-  background: var(--card);
-  border:1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-.card:hover{
-  border-color: rgba(37,99,235,.20);
-  background: var(--card2);
-}
-.card p{ color: var(--muted); }
-.card ul{ color: rgba(11,15,26,.82); }
-
-.icon{
-  border:1px solid rgba(15,23,42,.10);
-  background: rgba(255,255,255,.70);
-  box-shadow: 0 18px 40px rgba(15,23,42,.10);
-}
-
-/* ================= CONTACT ================= */
-.label{ color: rgba(11,15,26,.55); }
-.contact-link{
-  border:1px solid rgba(37,99,235,.22);
-  background: linear-gradient(90deg, rgba(37,99,235,.08), rgba(59,130,246,.08));
-  color: var(--txt);
-}
-
-/* ================= FOOTER ================= */
-.footer{
-  border-top:1px solid rgba(15,23,42,.08);
-  color: rgba(11,15,26,.60);
-}
-
-/* ================= Responsive: fix the mobile overlay ================= */
-@media (max-width: 980px){
-  .nav-links{
-    border:1px solid rgba(15,23,42,.12);
-    background: rgba(255,255,255,.92);
+  function closeMenu() {
+    btn.setAttribute("aria-expanded", "false");
+    links.classList.remove("open");
   }
-  .hero::after{
-    background: rgba(242,246,255,.85);
+
+  btn.addEventListener("click", () => {
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    links.classList.toggle("open");
+  });
+
+  links.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) closeMenu();
+  });
+
+  // Scroll progress bar
+  const fill = document.querySelector(".scrollbar-fill");
+
+  function updateScroll() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const p = max > 0 ? (h.scrollTop / max) : 0;
+    fill.style.transform = "scaleX(" + p.toFixed(4) + ")";
   }
-}
+
+  document.addEventListener("scroll", updateScroll, { passive: true });
+  updateScroll();
+
+  // Reveal on scroll
+  const items = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach(el => io.observe(el));
+
+  // Tilt effect (subtle)
+  const tiltCards = document.querySelectorAll(".tilt");
+
+  tiltCards.forEach(card => {
+    let raf = 0;
+
+    function onMove(ev) {
+      const r = card.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width;
+      const y = (ev.clientY - r.top) / r.height;
+
+      const rx = (0.5 - y) * 6;
+      const ry = (x - 0.5) * 7;
+
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        card.style.transform =
+          "translateY(-2px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+      });
+    }
+
+    function onLeave() {
+      card.style.transform = "";
+    }
+
+    card.addEventListener("mousemove", onMove);
+    card.addEventListener("mouseleave", onLeave);
+  });
+</script>
+</body>
+</html>
